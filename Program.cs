@@ -1,43 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ClassWork
+
+namespace Lab02
 {
-    class Lab01
+    class Program
     {
-        private static void Main(String[] args)
+        static void Main(string[] args)
         {
-            string response;
-            //char s, f;
-            bool spicy, fancy;
-            Console.Write("Do you like Spicy food? (y | n): ");
-            response = Console.ReadLine();
-            if (response.ToCharArray()[0] == 'y' || response.ToCharArray()[0] == 'y')
+            double pair_of_single_prescriiption_glasses_cost = 40.00;
+            double non_prescriptio_sunglasses_cost = 25.00;
+            double anti_glare_cost = 12.50;
+            double brown_tint_coating_cost = 9.99;
+            Console.WriteLine("What kind of glasses would you like: ");
+            Console.WriteLine("1 -> prescription, 2 -> non-prescription : ");
+            int customer_selection = int.Parse(Console.ReadLine());
+            while (customer_selection < 1 || customer_selection > 2)
             {
-                Console.Write("Do you want to go to a fancy restaurant? (y | n): ");
-                response = Console.ReadLine();
-                if (response.ToCharArray()[0] == 'y' || response.ToCharArray()[0] == 'Y')
-                {
-                    Console.WriteLine("I suggest you go to Thai Garden's place.");
-                    Console.Read();
-                }
-                else
-                {
-                    Console.WriteLine("I suggest you go to Alberto's Tacqueria.");
-                    Console.Read();
-                }
+                Console.WriteLine("1 -> prescription, 2 -> non-prescription : ");
+                customer_selection = int.Parse(Console.ReadLine());
             }
+            double total_cost = 0.0;
+            if (customer_selection == 1)
+                total_cost = pair_of_single_prescriiption_glasses_cost;
             else
+                total_cost = non_prescriptio_sunglasses_cost;
+            Console.WriteLine("What kind of coating would you like: ");
+            Console.WriteLine("1 -> anti-glare, 2 -> brown tint : ");
+            customer_selection = int.Parse(Console.ReadLine());
+            while (customer_selection < 1 || customer_selection > 2)
             {
-                Console.Write("Do you want to go to a fancy restaurant? (y | n): ");
-                response = Console.ReadLine();
-                String ans = (response.ToCharArray()[0] == 'y' || response.ToCharArray()[0] == 'Y') ? "I suggest you to go to Chez Paris" : "I suggest you to go to Joe's Dinner";
-                Console.WriteLine(ans);
-                Console.Read();
+                Console.WriteLine("1 -> anti-glare, 2 -> brown tint : ");
+                customer_selection = int.Parse(Console.ReadLine());
+
             }
+            if (customer_selection == 1)
+                total_cost += anti_glare_cost;
+            else
+                total_cost += brown_tint_coating_cost;
+            Console.WriteLine(" Your total cost is $" + total_cost);
+            Console.ReadLine();
         }
     }
 }
